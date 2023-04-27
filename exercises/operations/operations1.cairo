@@ -9,8 +9,9 @@
 use debug::PrintTrait;
 
 fn poly(x: usize, y: usize) -> usize {
-    // FILL ME
-    res // Do not change
+    let res = (x * x * x) + y - 2; // FILL ME
+    return res;
+// res // Do not change
 }
 
 
