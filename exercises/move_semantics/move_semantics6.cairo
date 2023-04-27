@@ -2,7 +2,6 @@
 // Execute `starklings hint move_semantics6` or use the `hint` watch subcommand for a hint.
 // You can't change anything except adding or removing references.
 
-// I AM NOT DONE
 use debug::PrintTrait;
 
 #[derive(Drop)]
@@ -11,9 +10,9 @@ struct Number {
 }
 
 fn main() {
-    let mut number = Number { value: 1111111_u32 };
+    let number = Number { value: 1111111_u32 };
 
-    get_value(number);
+    let mut number = Number { value: get_value(number) };
 
     set_value(number);
 }
@@ -24,7 +23,7 @@ fn get_value(number: Number) -> u32 {
 }
 
 // Should take ownership
-fn set_value(number: Number) {
+fn set_value(mut number: Number) {
     let value = 2222222_u32;
     number = Number { value };
     number.value.print();
